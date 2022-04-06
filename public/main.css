@@ -1,0 +1,34 @@
+.joc-element {
+    background-color: #757575;
+    color: #ff7961;
+}
+
+.review-wrapper div img {
+    height: 50px;
+    width: auto;
+}
+
+.review-item {
+    background-color: #494949;
+}
+.joc-element div::-webkit-scrollbar {
+    display: none;
+}
+
+.joc-element div {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.review-item-wrapper {
+    overflow: auto;
+    max-height: 405px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.reserves {
+    width: 150px;
+}

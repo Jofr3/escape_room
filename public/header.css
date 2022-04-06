@@ -1,0 +1,20 @@
+header {
+    height: 100px;
+    background-color: #494949;
+}
+
+header div {
+    height: 100%;
+    align-items: center;
+}
+
+header div h3 {
+    color: #ff7961;
+    width: 100px;
+}
+
+header div h1 {
+    color: #f44336;
+    font-size: 70px;
+}
+

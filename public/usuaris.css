@@ -1,0 +1,17 @@
+.usuaris-wrapper div:last-child {
+    background-color: #757575;
+}
+
+.usuaris-wrapper div table {
+    background-color: #494949;
+    color: #ff7961;
+}
+
+.usuaris-wrapper div table thead {
+    background-color: #494949;
+    color: #ff1100;
+}
+
+.usuaris-wrapper div tbody tr  {
+    border-color: #ff7961;
+}
