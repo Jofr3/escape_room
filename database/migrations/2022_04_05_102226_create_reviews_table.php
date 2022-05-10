@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('grade');
             $table->text('comment');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('room_id')->constrained('rooms')->cascadeOnDelete();
+            $table->foreignId('game_id')->constrained('games')->cascadeOnDelete();
             $table->timestamps();
         });
     }

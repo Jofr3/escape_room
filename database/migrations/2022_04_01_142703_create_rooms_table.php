@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('name')->unique();
             $table->string('image');
             $table->foreignId('game_id')->nullable()->constrained('games')->onDelete('set null');
+            $table->boolean('rented')->default(false);
             $table->timestamps();
         });
     }

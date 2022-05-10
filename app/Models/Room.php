@@ -17,9 +17,4 @@ class Room extends Model
     {
         return $this->belongsTo(Game::class);
     }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
 }

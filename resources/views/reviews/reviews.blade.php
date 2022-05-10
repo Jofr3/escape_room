@@ -14,7 +14,7 @@
                     <th scope="col">Puntuacio</th>
                     <th scope="col">Commentari</th>
                     <th scope="col">Usuari</th>
-                    <th scope="col">Habitacio</th>
+                    <th scope="col">Joc</th>
                     <th scope="col">Eliminar</th>
                     <th scope="col">Edita</th>
                 </tr>
@@ -26,7 +26,7 @@
                         <td>{{ $review->grade}}</td>
                         <td>{{ $review->comment }}</td>
                         <td>{{ $review->user->name }}</td>
-                        <td>{{ $review->room->name }}</td>
+                        <td>{{ $review->game->name }}</td>
                         <td>
                             <a class="btn btn-danger" href="/reviews/delete/{{$review->id}}">Del</a>
                         </td>

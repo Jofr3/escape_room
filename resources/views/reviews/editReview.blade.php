@@ -17,10 +17,16 @@
                             @endif
                         @endfor
                     </select>
+                    @error('grade')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="comment" class="form-label">Commentari</label>
                     <input name="comment" value="{{ $review->comment }}" type="text" class="form-control" id="comment">
+                    @error('comment')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="user" class="form-label">Usuari</label>
@@ -35,13 +41,13 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="room" class="form-label">Habitacio</label>
-                    <select class="form-select" name="room" id="room">
-                        @foreach($rooms as $room)
-                            @if($room->id != $review->room->id)
-                                <option value="{{ $room->id }}">{{ $room->name }}</option>
+                    <label for="game" class="form-label">Joc</label>
+                    <select class="form-select" name="game" id="game">
+                        @foreach($games as $game)
+                            @if($game->id != $review->game->id)
+                                <option value="{{ $game->id }}">{{ $game->name }}</option>
                             @else
-                                <option selected value="{{ $room->id }}">{{ $room->name }}</option>
+                                <option selected value="{{ $game->id }}">{{ $game->name }}</option>
                             @endif
                         @endforeach
                     </select>

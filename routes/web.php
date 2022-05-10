@@ -1,14 +1,30 @@
 <?php
 
+use App\Http\Controllers\ControllerLogin;
 use App\Http\Controllers\ControllerReservations;
 use App\Http\Controllers\ControllerReviews;
 use App\Http\Controllers\ControllerRooms;
 use App\Http\Controllers\ControllerGames;
 use App\Http\Controllers\ControllerUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ControllerGames::class, 'show']);
-Route::fallback(function () { return view('/404'); });
+Route::view('/', 'index');
+Route::get('/main', [ControllerGames::class, 'show']);
+Route::fallback(function () {
+    return view('/404');
+});
+
+Route::get('/account', [ControllerUsers::class, 'account']);
+Route::post('/accountPost/{id}', [ControllerUsers::class, 'updateAccount']);
+Route::get('/account/review/{id}', [ControllerUsers::class, 'review']);
+Route::post('/account/reviewPost', [ControllerUsers::class, 'reviewPost']);
+
+Route::view('/signup', 'signup');
+Route::post('/signupPost', [ControllerLogin::class, 'signup']);
+
+Route::post('/login', [ControllerLogin::class, 'auth']);
+Route::get('/logout', [ControllerLogin::class, 'logout']);
 
 Route::get('/users', [ControllerUsers::class, 'all']);
 Route::get('/users/edit/{id}', [ControllerUsers::class, 'edit']);
@@ -37,6 +53,10 @@ Route::post('/reservations/editPost/{id}', [ControllerReservations::class, 'edit
 Route::get('/reservations/create', [ControllerReservations::class, 'create']);
 Route::post('/reservations/createPost', [ControllerReservations::class, 'createPost']);
 Route::get('/reservations/delete/{id}', [ControllerReservations::class, 'delete']);
+Route::get('/reservations/make', [ControllerReservations::class, 'make']);
+Route::post('/reservations/makePost', [ControllerReservations::class, 'makePost']);
+Route::get('/confirmReservations', [ControllerReservations::class, 'confirmReservations']);
+Route::get('/confirmReservations/{id}', [ControllerReservations::class, 'confirm']);
 
 Route::get('/reviews', [ControllerReviews::class, 'all']);
 Route::get('/reviews/edit/{id}', [ControllerReviews::class, 'edit']);

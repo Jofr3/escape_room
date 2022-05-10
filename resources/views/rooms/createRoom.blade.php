@@ -9,10 +9,16 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
                     <input name="name" type="text" class="form-control" id="name">
+                    @error('name')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Imatge</label>
                     <input name="image" type="file" class="form-control" id="image">
+                    @error('image')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="game" class="form-label">Joc</label>
@@ -21,6 +27,9 @@
                             <option value="{{ $game->id }}">{{ $game->name }}</option>
                         @endforeach
                     </select>
+                    @error('game')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-secondary">Crea</button>
                 <a href="/rooms" type="submit" class="btn btn-danger">Cancela</a>

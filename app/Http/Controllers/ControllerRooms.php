@@ -26,15 +26,16 @@ class ControllerRooms extends Controller
     public function editPost($id, Request $request)
     {
 
+        $validator = $request->validate([
+            'name' => 'required',
+            'game' => 'required',
+        ]);
+
         $room = Room::findOrFail($id);
 
         $room->name = $request->name;
-
-        $imageName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path('images'), $imageName);
-
-        $room->image = $imageName;
         $room->game_id = $request->game;
+        $room->rented = $request->rented;
 
         $room->save();
 

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
+use App\Models\Reservation;
 use App\Models\Review;
-use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ControllerReviews extends Controller
     {
         return view('reviews/editReview', [
             'review' => Review::findOrFail($id),
-            'rooms' => Room::all(),
+            'games' => Game::all(),
             'users' => User::all()
         ]);
     }
@@ -28,12 +29,17 @@ class ControllerReviews extends Controller
     public function editPost($id, Request $request)
     {
 
+        $validator = $request->validate([
+            'grade' => 'required',
+            'comment' => 'required',
+        ]);
+
         $review = Review::findOrFail($id);
 
         $review->grade = $request->grade;
         $review->comment = $request->comment;
         $review->user_id = $request->user;
-        $review->room_id = $request->room;
+        $review->game_id = $request->game;
 
         $review->save();
 
@@ -43,20 +49,24 @@ class ControllerReviews extends Controller
     public function create()
     {
         return view('reviews/createReview', [
-            'rooms' => Room::all(),
+            'games' => Game::all(),
             'users' => User::all()
         ]);
     }
 
     public function createPost(Request $request)
     {
+        $validator = $request->validate([
+            'grade' => 'required',
+            'comment' => 'required',
+        ]);
 
         $review = new Review;
 
         $review->grade = $request->grade;
         $review->comment = $request->comment;
         $review->user_id = $request->user;
-        $review->room_id = $request->room;
+        $review->game_id = $request->game;
 
         $review->save();
 

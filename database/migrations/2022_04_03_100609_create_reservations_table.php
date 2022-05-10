@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->text('phoneNum');
             $table->string('country');
+            $table->boolean('confirm')->default(false);
+            $table->boolean('hasReview')->default(false);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('room_id')->constrained('rooms')->cascadeOnDelete();
             $table->timestamps();

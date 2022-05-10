@@ -17,7 +17,8 @@ class UserFactory extends Factory
             'surname' => $this->faker->lastName(),
             'email' => $this->faker->email(),
             'dni' => $this->faker->creditCardNumber(),
-            'password' => $this->faker->password(10)
+            'password' => $this->faker->password(10),
+            'role' => '1'
         ];
     }
 }

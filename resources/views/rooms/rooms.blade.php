@@ -14,6 +14,7 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Imatge</th>
                     <th scope="col">Joc</th>
+                    <th scope="col">Disponible</th>
                     <th scope="col">Eliminar</th>
                     <th scope="col">Edita</th>
                 </tr>
@@ -28,6 +29,11 @@
                             <td>{{ $room->game->name }}</td>
                         @else
                             <td></td>
+                        @endif
+                        @if(!$room->rented)
+                            <td>Si</td>
+                        @else
+                            <td>No</td>
                         @endif
                         <td>
                             <a class="btn btn-danger" href="/rooms/delete/{{$room->id}}">Del</a>

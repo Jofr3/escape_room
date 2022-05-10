@@ -145,6 +145,39 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'name' => [
+            'required' => 'El nom es requerit',
+        ],
+        'surname' => [
+            'required' => 'El cognom es requerit',
+        ],
+        'email' => [
+            'required' => 'El mail es requerit',
+        ],
+        'dni' => [
+            'required' => 'El dni es requerit',
+        ],
+        'password' => [
+            'required' => 'La contrassenya es requerida',
+        ],
+        'comment' => [
+            'required' => 'El comentari es requerit',
+        ],
+        'org' => [
+            'required' => 'La organitzacio es requerida',
+        ],
+        'phoneNum' => [
+            'required' => 'El numero es requerit',
+        ],
+        'country' => [
+            'required' => 'El pais es requerit',
+        ],
+        'image' => [
+            'required' => 'La imatge es requerida',
+        ],
+        'room' => [
+            'required' => 'La habitacio es requerida',
+        ],
     ],
 
     /*

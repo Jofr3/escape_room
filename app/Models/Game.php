@@ -17,4 +17,9 @@ class Game extends Model
     {
         return $this->hasMany(Room::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

@@ -9,20 +9,20 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
                     <input name="name" value="{{$room->name}}" type="text" class="form-control" id="name">
+                    @error('name')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input name="image" type="file" class="form-control" id="image">
+                    @error('image')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="game" class="form-label">Joc</label>
                     <select class="form-select" name="game" id="game">
-
-                        @foreach($games as $game)
-
-                        @endforeach
-
-
                         @foreach($games as $game)
                             @if($room->game != null)
                                 @if($game->id != $room->game->id)
@@ -34,6 +34,13 @@
 
                             @endif
                         @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="rented" class="form-label">Disponible</label>
+                    <select class="form-select" name="rented" id="rented">
+                        <option value="0" selected>Si</option>
+                        <option value="1">No</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-secondary">Edita</button>
